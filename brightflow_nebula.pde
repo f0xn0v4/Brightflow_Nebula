@@ -1,11 +1,11 @@
 PImage img;
 PImage bg;
 ArrayList<Particle> particles = new ArrayList<Particle>();
-int particle_count = 40000;
+int particle_count = 160000;
 int min_lifetime = 30;
 int max_lifetime = 70;
 float[] v_map;
-color[] c_map = {#3D2473, #73436B, #8C657B, #A63C9F, #F2A0ED, #3D2473};
+color[] c_map = {#643ABD, #D97ECA, #F2AED5, #DE50D4, #FF73A2, #643ABD};
 
 void setup(){
   colorMode(HSB);
@@ -28,7 +28,7 @@ void setup(){
 
 void settings(){
   img = loadImage("img.jpg");
-  bg = loadImage("Hippopx.jpg");
+  bg = loadImage("Hippopx_dark.jpg");
   size(img.width,img.height);
 }
 
@@ -53,7 +53,7 @@ void draw(){
   tint(255, 80);
   image(bg, 0, 0);
   noTint();
-  saveFrame("frames/#####.png");
+  saveFrame("frames/##.png");
 }
 
 float map_brightness(int a){
@@ -110,8 +110,8 @@ class Particle{
     int low_idx = floor(v_lerp);
     float diff = v_lerp - low_idx;
     color c = lerpColor(c_map[low_idx], c_map[high_idx], diff);
-    stroke(c, 175);
-    strokeWeight(1.25);
+    stroke(c, 110);
+    strokeWeight(1);
     point(this.p.x, this.p.y);
   }
 }
